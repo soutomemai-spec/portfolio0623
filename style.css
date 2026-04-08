@@ -1,0 +1,384 @@
+@charset "utf-8";
+
+/* ===== ベース ===== */
+body {
+  margin: 0;
+  font-family: 'Zen Kaku Gothic New', sans-serif;
+  background: #f5f5f5;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  line-height: 1.7;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* ===== パネル（青い画面＋アニメーション残す） ===== */
+.panel {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #0a1f44, #1e3c72);
+  color: white;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  font-size: clamp(20px, 4vw, 40px); /* ←読みやすく調整 */
+  text-align: center;
+  padding: 0 20px;
+
+  font-weight: 600; /* ←太さ調整 */
+
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 1s ease;
+}
+
+.panel.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* 文字アニメーション */
+.panel span span {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+.panel.show span span {
+  animation: charFade 0.5s ease forwards;
+}
+
+@keyframes charFade {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ===== ヘッダー ===== */
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+
+  background: white;
+  display: flex;
+  flex-direction: column; /* ←これ追加が本体 */
+  align-items: center;    /* ←中央寄せ */
+
+  padding: 15px 0;
+  box-sizing: border-box;
+
+  z-index: 1000;
+}
+.header nav a {
+  margin-left: 30px;
+  text-decoration: none;
+  color: #333;
+}
+
+.header nav a:hover {
+  color: #3b82f6;
+}
+
+/* ===== HOME ===== */
+.home {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 120px 10%;
+  height: 100vh;
+}
+
+.home img {
+  width: 350px;
+  border-radius: 20px;
+  object-fit: cover;
+}
+
+/* タイトル */
+.main-title {
+  font-size: 60px;
+  font-weight: 700;
+  line-height: 1.5;
+  color: #0a1f44;
+}
+
+.main-title span {
+  color: #3b82f6;
+}
+
+.sub {
+  margin-top: 10px;
+  font-size: 16px;
+}
+
+/* ===== STORY ===== */
+.section-title {
+  text-align: center;
+  font-size: 32px;
+  margin: 80px 0 40px;
+  color: #444;
+  font-weight: 700;
+}
+
+.timeline {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  flex-wrap: wrap;
+  position: relative;
+}
+
+/* 横線 */
+.timeline::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  width: 100%;
+  height: 2px;
+  background: #ddd;
+  z-index: -1;
+}
+
+.story-item {
+  text-align: center;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+/* 紺の丸枠（残す） */
+.story-item img {
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid #0a1f44;
+}
+
+.story-item:hover {
+  transform: translateY(-10px);
+}
+
+/* ===== ABOUT ===== */
+.card-container {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+
+.info-card {
+  text-align: center;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.info-card img {
+  width: 150px;
+  border-radius: 15px;
+}
+
+.info-card:hover {
+  transform: translateY(-10px);
+}
+
+/* ===== モーダル ===== */
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.7);
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.modal-box {
+  background: white;
+  padding: 20px;
+  width: 80%;
+  max-width: 400px;
+  border-radius: 15px;
+  text-align: center;
+}
+
+#modal-img {
+  width: 100%;
+  border-radius: 10px;
+}
+
+/* ===== トップボタン ===== */
+#topBtn {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  width: 50px;
+  height: 50px;
+  background: #3b82f6;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  display: none;
+}
+
+/* ===== フッター ===== */
+.footer {
+  background: #0a1f44;
+  color: white;
+  text-align: center;
+  padding: 30px 0;
+}
+
+/* ===== スマホ対応 ===== */
+@media (max-width: 768px) {
+
+  .home {
+    flex-direction: column;
+    text-align: center;
+    padding: 80px 20px;
+    height: auto;
+  }
+
+  .home img {
+    width: 80%;
+    margin-top: 20px;
+  }
+
+  .main-title {
+    font-size: 32px;
+  }
+}
+
+/* スクロール */
+html {
+  scroll-behavior: smooth;
+}
+
+
+
+
+/* ===== 全体の文字サイズUP ===== */
+body {
+  font-family: 'Zen Kaku Gothic New', sans-serif;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  line-height: 1.7;
+  font-size: 18px; /* ←追加（重要） */
+}
+
+/* ===== タイトル ===== */
+.main-title {
+  font-size: 70px; /* ←大きく */
+  font-weight: 700;
+  line-height: 1.5;
+}
+
+/* ===== 青いパネル ===== */
+.panel {
+  font-size: clamp(24px, 5vw, 50px); /* ←調整 */
+  font-weight: 600;
+}
+
+/* ===== セクションタイトル ===== */
+.section-title {
+  font-size: 36px;
+  font-weight: 700;
+}
+
+/* ===== サブテキスト ===== */
+.sub {
+  font-size: 18px;
+}
+
+/* ===== スマホ最適化 ===== */
+@media (max-width: 768px) {
+
+  body {
+    font-size: 16px;
+  }
+
+  .main-title {
+    font-size: 34px;
+  }
+
+  .panel {
+    font-size: 24px;
+  }
+
+  .section-title {
+    font-size: 26px;
+  }
+}
+.modal-box {
+  width: 90%;
+  max-width: 350px; /* ←大きすぎ防止 */
+  padding: 20px;
+}
+
+#modal-img {
+  width: 100%;
+  max-height: 300px; /* ←画像デカすぎ防止 */
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+#modal-title {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+#modal-text {
+  font-size: 14px;
+  line-height: 1.6;
+}
+#modal-text {
+  white-space: pre-line;
+}
+#modal-text {
+  font-size: 15px;
+  line-height: 1.8;
+  letter-spacing: 0.5px; /* ←これが地味に効く */
+  white-space: pre-line;
+}
+.highlight {
+  color: red !important;
+  font-weight: bold !important;
+}
+.sports,
+.culture {
+  color: #000; /* 黒 */
+  font-weight: 700; /* 太字 */
+}
+#modal-text ul {
+  padding-left: 15px;   /* ← 左のズレ調整 */
+  margin: 5px 0;        /* ← 上下の余白削る */
+}
+
+#modal-text li {
+  margin: 3px 0;        /* ← 行間詰める */
+  line-height: 1.2;     /* ← コンパクトに */
+  font-size: 13px;
+}
+#modal img {
+  width: 280px;   /* ← これで画像サイズ固定 */
+  height: auto;
+  border-radius: 12px;
+}
+
+#modal {
+  padding: 20px 30px;
+}
+
+#modal-text {
+  margin-top: 10px;
+}
+
