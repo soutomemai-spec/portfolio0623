@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@400;700&display=swap" rel="stylesheet">
+<title>Portfolio</title>
+<link rel="icon" href="favicon.png">
+<link href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&family=Kosugi+Maru&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<script src="script.js" defer></script>
+
+</head>
+
+
+
+<body>
+<section class="panel"><span>迷ったら、動く。</span></section>
+<section class="panel"><span>できるかじゃなくて、やるか。</span></section>
+<section class="panel"><span>一歩踏み出す。</span></section>
+
+<div id="mainSite">
+
+
+
+  
+
+<header class="header">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <div class="logo">Saotome Mai</div>
+  <nav>
+    <a href="#home">Home</a>
+    <a href="#story">Story</a>
+    <a href="#about">About Me</a>
+  </nav>
+</header>
+<section id="home" class="home">
+
+  <div class="text">
+    <h1 class="main-title">
+      「やってみる」から<br>
+      始まる成長
+    </h1>
+
+    <p>やってみないとわからないがモットーです。</p>
+
+    <p class="sub">
+      WEB CREATOR<br>
+      早乙女 真唯
+    </p>
+  </div>
+
+  <img src="https://images.unsplash.com/photo-1522075469751-3a6694fb2f61">
+
+</section>
+<section id="story"></section>
+<section>
+<h2 class="section-title">Story</h2>
+<div class="timeline">
+<div class="story-item" onclick="openModal(0)">
+<img src="foto/hoikuenn.jpg">
+<p>保育園</p>
+<span class="story-text">🌱 人見知りからスタート</span>
+</div>
+<div class="story-item" onclick="openModal(1)">
+<img src="foto/shougaku.jpg">
+<p>小学生</p>
+<span class="story-text">🎒 いろんなことに挑戦</span>
+</div>
+<div class="story-item" onclick="openModal(2)">
+<img src="foto/Ityuugaku.jpg">
+<p>中学生</p>
+<span class="story-text">🏐 部活に本気で向き合う</span>
+</div>
+<div class="story-item" onclick="openModal(3)">
+<img src="foto/koukou.jpg">
+<p>高校生</p>
+<span class="story-text">🤔 迷いの中で見つけたもの</span>
+</div>
+<div class="story-item" onclick="openModal(4)">
+<img src="foto/sennmonngakusei.jpg">
+<p>専門学生</p>
+<span class="story-text">💻 情報に出会った転機</span>
+</div>
+</div>
+</section>
+ 
+ 
+
+<section id="about"></section>
+<section>
+<h2 class="section-title">About </h2>
+
+<div class="card-container">
+
+<div class="info-card" onclick="openModal(0, 'about')">
+<img src="foto/jikoshoukai (1).jpg">
+<h3 class="modal-title">自己紹介</h3>
+</div>
+
+<div class="info-card" onclick="openModal(1, 'about')">
+<img src="foto/tuyomi (1).jpg">
+<h3 class="modal-title"> 強み</h3>
+</div>
+
+<div class="info-card" onclick="openModal(2, 'about')">
+<img src="foto/sukil (2).jpg">
+<h3 class="modal-title"> スキル</h3>
+</div>
+
+</div>
+</section>
+
+</div>
+
+<!-- モーダル -->
+<div id="modal" class="modal" onclick="outsideClose(event)">
+<div class="modal-box">
+<span onclick="closeModal()">×</span>
+<h3 id="modal-title"></h3>
+<img id="modal-img" style="width:100%">
+<p id="modal-text"></p>
+</div>
+</div>
+
+
+
+
+
+<section class="panel last-panel" onclick="location.href='index2test.html'">
+  <span>挑戦は、終わらない。</span>
+</section>
+
+
+<button id="topBtn">↑</button>
+
+
+<footer class="footer">
+  <p>© 2026 Saotome Mai</p>
+</footer>
+
+
+
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
